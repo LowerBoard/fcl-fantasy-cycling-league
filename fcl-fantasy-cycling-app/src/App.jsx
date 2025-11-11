@@ -1,22 +1,35 @@
 import { useState } from 'react'
 import React from 'react';
-import Login from './components/Login';
 import { Route, Routes } from 'react-router-dom';
-import './App.css'
+import Login from './components/Login';
+import Registration from './components/Registration';
+import TeamPage from './components/TeamPage';
+import Nav from './components/Nav';
 import Dashboard from './components/Dashboard';
+import './App.css'
 
 function App() {
+  const [userSignedIn, setUserSignedIn] = useState(false);
 
   return (
     <>
       <div>
-        <h1>Welcome to the FCL</h1>
+        <header>
+          <Nav />
+        </header>
+        <main>
+          <h1>Welcome to the FCL</h1>
+        
         {/*<Login />*/}
         {/*<Dashboard />*/}
+        </main>
       </div>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Login setUserSignedIn={setUserSignedIn} />} />
+        <Route path="/dashboard" element={<Dashboard userSignedIn={userSignedIn} />} />
+        <Route path="/registration" element={<Registration setUserSignedIn={setUserSignedIn} />}/>
+        <Route path="/teampage" element={<TeamPage />} />
+        <Route path="/nav" element={<Nav userSignedIn={userSignedIn} />}/>
       </Routes>
     </>
   );

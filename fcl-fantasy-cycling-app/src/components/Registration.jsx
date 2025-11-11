@@ -10,6 +10,7 @@ function Registration() {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     if (userEmail && userPassword && userTeamName) {
       alert('Thanks for signing up. Welcome to the League!');
       navigate("/dashboard")
@@ -27,7 +28,7 @@ function Registration() {
               <input
               type='email'
               id='email'
-              value={email}
+              value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
               required
               />
@@ -38,11 +39,25 @@ function Registration() {
               <input
               type='password'
               id='password'
-              value={password}
+              value={userPassword}
+              onChange={(e) => setUserPassword(e.target.value)}
+              required
               />
             </label>
           </div>
+          <div>
+            <label>Team Name:
+              <input
+              type='text'
+              id='teamname'
+              value={userTeamName}
+              onChange={(e) => setUserTeamName(e.target.value)}
+              />
+            </label>
+          </div>
+          <button type='submit'>Register</button>
         </form>
+        
 
     </div>
   )
