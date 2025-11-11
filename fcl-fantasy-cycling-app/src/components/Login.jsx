@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
 
-function Login() {
+function Login({setUserSignedIn}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -12,7 +12,8 @@ function Login() {
         event.preventDefault();
         if (email === 'chris@chris.com' && password === '123') {
             alert(`You've Successfully Logged In!`);
-            console.log("That worked")
+            console.log("That worked");
+            setUserSignedIn(true);
             navigate("/dashboard");
             } else {
             alert(`Invalid Login!`);
@@ -46,6 +47,7 @@ function Login() {
                 </label>
             </div>
             <button type='submit'>Log In</button>
+            <Link to="/registration">Register</Link>
         </form>
 
     </div>
