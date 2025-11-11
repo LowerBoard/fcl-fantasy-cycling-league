@@ -10,8 +10,9 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (email /*=== data.email*/ && password /*=== data.password*/) {
+        if (email === 'chris@chris.com' && password === '123') {
             alert(`You've Successfully Logged In!`);
+            console.log("That worked")
             navigate("/dashboard");
             } else {
             alert(`Invalid Login!`);
@@ -21,9 +22,9 @@ function Login() {
   return (
     <div>
         <h2>Login Page</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
             <div>
-                <label>Email:</label>
+                <label>Email:
                 <input
                     type='email'
                     id='email'
@@ -31,9 +32,10 @@ function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
+                </label>
             </div>
             <div>
-                <label>Password:</label>
+                <label>Password:
                 <input
                     type='password'
                     id='password'
@@ -41,6 +43,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+                </label>
             </div>
             <button type='submit'>Log In</button>
         </form>

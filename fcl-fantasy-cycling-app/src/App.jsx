@@ -11,10 +11,11 @@ function App() {
     <>
       <div>
         <h1>Welcome to the FCL</h1>
-        <Login />
-        <Dashboard />
+        {/*<Login />*/}
+        {/*<Dashboard />*/}
       </div>
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
