@@ -6,6 +6,7 @@ function Login({setUserSignedIn}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -20,9 +21,14 @@ function Login({setUserSignedIn}) {
             }
     };
 
+    const goToRegistration = () => {
+        navigate('/registration');
+    };
+
   return (
     <div>
-        <h2>Login Page</h2>
+        <h2>Join the Peloton</h2>
+        <p>Login or Click and Register</p>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Email:
@@ -46,8 +52,8 @@ function Login({setUserSignedIn}) {
                 />
                 </label>
             </div>
-            <button type='submit'>Log In</button>
-            <Link to="/registration">Register</Link>
+            <button type='submit' className='bg-yellow-500 text-black'>Log In</button>
+            <button type='button' onClick={goToRegistration} className='bg-red-500 text-white'>Register</button>
         </form>
 
     </div>

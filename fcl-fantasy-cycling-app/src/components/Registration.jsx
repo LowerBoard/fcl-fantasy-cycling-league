@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 
-function Registration() {
+function Registration({userTeamName, setUserSignedIn, setUserTeamName}) {
 
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [userTeamName, setUserTeamName] = useState('');
   const navigate = useNavigate();
+
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (userEmail && userPassword && userTeamName) {
       alert('Thanks for signing up. Welcome to the League!');
-      navigate("/dashboard")
+      setUserSignedIn(true);
+      navigate("/dashboard");
     } else {
       alert('All fields must be filled out!')
   }
@@ -63,4 +65,4 @@ function Registration() {
   )
 }
 
-export default Registration
+export default Registration;
