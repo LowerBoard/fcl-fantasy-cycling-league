@@ -1,21 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import fclLogo from '../assets/FCLlogo1.png';
 
 
-function Nav({userSignedIn}) {
-    if (userSignedIn === false) {
+function Nav({setUserSignedIn}) {
+    
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        setUserSignedIn(false);
+        navigate("/");
+    }
+    
         return(
-            <div>
-                <nav className='nav-bar'>
-                    <Link to="/"><img src={fclLogo} className='nav-logo'></img></Link>
-                    <Link to="/">Login</Link>
-                </nav>
-            </div>
-        )
-    } else {
-        return(
-    <>
         <div>
             <nav className='nav-bar'>
                 <img src={fclLogo} className='nav-logo'></img>
@@ -24,17 +21,20 @@ function Nav({userSignedIn}) {
                         <Link to="/dashboard">Dashboard</Link>
                     </li>
                     <li>
+                        <Link to="/ridersavailable">Available Riders</Link>
+                    </li>
+                    <li>
                         <Link to="/teampage">Team Page</Link>
+                    </li>
+                    <li>
+                        <button type='button' onClick={handleClick}>Sign Out</button>
                     </li>
                 </ul>
             </nav>
         </div>
-        <div>
-            
-        </div>
-    </>
+        
     );
 };
-};
+
 
 export default Nav
