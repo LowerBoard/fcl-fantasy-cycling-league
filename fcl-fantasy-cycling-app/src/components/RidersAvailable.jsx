@@ -4,7 +4,6 @@ import CyclistRow from './cyclistRow';
 function RidersAvailable({ridersAvailable, setRidersAvailable, setUserTeam, isRosterFull}) {
     const handleAddRider = (riderId) => {
         if(isRosterFull) {
-            alert(`Team is Already Full`);
             return;
         };
 
