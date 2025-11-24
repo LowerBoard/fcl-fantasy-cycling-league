@@ -13,7 +13,7 @@ function TeamPage({userTeam, setUserTeam, setRidersAvailable, userTeamName, setU
   return (
     <div className='flex flex-col items-center  mt-4 mb-10'>
         <section className='flex flex-col items-center'>  
-          <h1 className='font-fasterone text-red-700 text-5xl text-shadow-lg/25' >The {userTeamName} Page</h1>
+          <h1 className='font-fasterone text-red-700 text-5xl text-shadow-lg/25' >The {userTeamName} Team Page</h1>
           <p className='font-fasterone text-sky-700 text-2xl text-shadow-lg/50' >----Hold Up to 7 Riders----</p>
         </section>  
         <section className='flex flex-col items-center'>

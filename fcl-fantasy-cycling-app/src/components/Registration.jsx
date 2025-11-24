@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-function Registration({userTeamName, setUserSignedIn, setUserTeamName}) {
+function Registration({userTeamName, setUserSignedIn, setUserTeamName, errorMessage, setErrorMessage}) {
 
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -12,12 +12,14 @@ function Registration({userTeamName, setUserSignedIn, setUserTeamName}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setErrorMessage('');
+
     if (userEmail && userPassword && userTeamName) {
       alert('Thanks for signing up. Welcome to the League!');
       setUserSignedIn(true);
       navigate("/dashboard");
     } else {
-      alert('All fields must be filled out!')
+      setErrorMessage(`All Fields Must Be Filled Out`);
   }
   };
 
@@ -63,8 +65,9 @@ function Registration({userTeamName, setUserSignedIn, setUserTeamName}) {
                 />
               </label>
             </div>
+            {errorMessage ? <p className='text-red-700 flex justify-center'>{errorMessage}</p> : null}
             <div className='flex justify-center items-between'>
-              <button className='bg-red-700 text-white border-2 rounded-md px-1 m-1' type='submit'>Register</button>
+              <button className='bg-red-700 hover:bg-red-500 text-white border-2 rounded-md px-1 m-1' type='submit'>Register</button>
             </div>
           </form>
         </section>

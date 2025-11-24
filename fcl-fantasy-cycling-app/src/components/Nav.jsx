@@ -17,7 +17,7 @@ function Nav({setUserSignedIn, setUserTeamName}) {
         return(
         <div className='font-monofett'>
             <nav className='nav-bar'>
-                <img src={fclLogo} className='nav-logo'></img>
+                <img src={fclLogo} alt='this is the site logo, its the letters f c l' className='nav-logo'></img>
                 <ul className='nav-list'>
                     <li>
                         <Link to="/dashboard">Dashboard</Link>
