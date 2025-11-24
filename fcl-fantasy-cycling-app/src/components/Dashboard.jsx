@@ -9,7 +9,7 @@ function Dashboard({userSignedIn, userTeam}) {
   return (
     <div>
       <section className='flex flex-col items-center'>
-        <h1 className='font-fasterone text-red-700 text-7xl text-shadow-lg/25'>Dashboard</h1>
+        <h1 className='font-fasterone text-red-700 text-4xl lg:text-7xl text-shadow-lg/25'>Dashboard</h1>
         <p className='font-fasterone text-sky-700 text-2xl text-shadow-lg/50' >----a snapshot of your team and standings----</p>
       </section>
 
