@@ -45,20 +45,24 @@ const riderPool = [
   {id: 30, name: 'Matthew Brennan', team: 'Team Visma|Lease a Bike', country: 'Great Britain', cost: 72, points: 60}
 ]
 
-/*const fauxOtherTeamPoints = [
+
+let fauxOtherTeamPoints = [
   {id:1, teamname: 'Watt-opia Warriors', points: 589},
   {id:2, teamname: 'Pedal Boys', points: 599},
   {id:3, teamname: 'Velo Mafia', points: 601},
   {id:4, teamname: 'Chain Smokers', points: 460},
   {id:5, teamname: 'Ridin Spinners', points: 550},
 ]
-*/
+
+
+
 function App() {
   const [userSignedIn, setUserSignedIn] = useState(false);
   const [ridersAvailable, setRidersAvailable] = useState(riderPool);
   const [userTeam, setUserTeam] = useState([]);
   const [userTeamName, setUserTeamName] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [userTeamPoints, setUserTeamPoints] = useState(0)
 
   const maxTeamSize = 7;
   const isRosterFull = userTeam.length >= maxTeamSize;
@@ -76,7 +80,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login setUserSignedIn={setUserSignedIn} setUserTeamName={setUserTeamName} userTeamName={userTeamName} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />} />
             <Route path="/about" element={<About />}/>
-            <Route path="/dashboard" element={<Dashboard userSignedIn={userSignedIn} userTeam={userTeam} />} />
+            <Route path="/dashboard" element={<Dashboard userSignedIn={userSignedIn} userTeam={userTeam} fauxOtherTeamPoints={fauxOtherTeamPoints} userTeamPoints={userTeamPoints} setUserTeamPoints={setUserTeamPoints} />} />
             <Route path="/registration" element={<Registration setUserSignedIn={setUserSignedIn} setUserTeamName={setUserTeamName} userTeamName={userTeamName} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}/>
             <Route path="/ridersavailable" element={<RidersAvailable ridersAvailable={ridersAvailable} setUserTeam={setUserTeam} setRidersAvailable={setRidersAvailable} isRosterFull={isRosterFull}/>}/>
             <Route path="/teampage" element={<TeamPage userTeam={userTeam} setUserTeam={setUserTeam} setRidersAvailable={setRidersAvailable} isRosterFull={isRosterFull} setUserTeamName={setUserTeamName} userTeamName={userTeamName}/>}/>
