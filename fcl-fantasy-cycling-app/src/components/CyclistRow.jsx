@@ -1,5 +1,5 @@
 import React from 'react'
-import { PlusCircle, MinusCircle, Users, Lock } from 'lucide-react';
+import { PlusCircle, MinusCircle, Lock } from 'lucide-react';
 
 function cyclistRow({rider, onAction, actionType}) {
     const isAdding = actionType === 'add';
@@ -12,42 +12,40 @@ function cyclistRow({rider, onAction, actionType}) {
     let buttonDisabled = false;
 
     if (isAdding) {
-        buttonIcon = <PlusCircle size={16}/>;
+        buttonIcon = <PlusCircle size={26} color={'#f2f224ff'}/>;
         buttonMessage = 'Add Rider';
-        buttonColor = 'bg-green-400';
+        buttonColor = 'bg-green-700 border-yellow-200 text-yellow-200 border-2 rounded-lg';
     } else if (isRemoving) {
-        buttonIcon = <MinusCircle size={16}/>;
+        buttonIcon = <MinusCircle size={26} color={'white'}/>;
         buttonMessage = 'Remove Rider';
-        buttonColor = 'bg-red-400';
+        buttonColor = 'bg-red-700 border-sky-600 text-white border-2 rounded-lg';
     } else if (isDisabled) {
-        buttonIcon = <Lock size={16}/>;
+        buttonIcon = <Lock size={26} color={'#0096FF'}/>;
         buttonMessage = 'Team Full';
-        buttonColor = 'bg-slate-400';
+        buttonColor = 'bg-slate-500 text-blue-400';
     };
 
     
 
   return (
-    <div>
+    
         <tr>
             <td>
-                <div>{rider.name}</div>
-                <div>{rider.country}</div>
+                {rider.name} - {rider.country}
             </td>
             <td>{rider.team}</td> 
             <td>${rider.cost}</td>
             <td>
                 <button 
                     onClick={() => onAction(rider.id)}
-                    className ={`${buttonColor}`}
+                    className ={`flex ${buttonColor}`}
                     disabled = {buttonDisabled}
                     >
-                        {buttonIcon}
-                        <span>{buttonMessage}</span>
+                        {buttonIcon}{buttonMessage}
                 </button>
             </td>   
         </tr>
-    </div>
+    
   )
 }
 
