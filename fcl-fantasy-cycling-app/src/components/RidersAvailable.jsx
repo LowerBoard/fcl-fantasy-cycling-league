@@ -19,7 +19,7 @@ function RidersAvailable({ridersAvailable, setRidersAvailable, setUserTeam, isRo
     <div className='flex flex-col items-center  mt-4 mb-10'>
         <section className='flex flex-col items-center'>
             <h1 className='font-fasterone text-red-700 text-center text-3xl lg:text-7xl text-shadow-lg/25' >Riders Available</h1>
-            <p className='font-fasterone text-sky-700 text-xl lg-text-2xl text-center text-balance text-shadow-lg/50' >----Build your 7 Rider Squad----</p>
+            <p className='font-fasterone text-sky-700 text-xl lg-text-2xl text-center text-balance text-shadow-lg/50' >---Build your 7 Rider Squad---</p>
             <h2 className='font-fasterone text-yellow-400 text-2xl lg-text-6xl text-shadow-lg/25 mb-2.5'>Available Rider Pool</h2>
         </section>
         <section>
