@@ -14,11 +14,11 @@ function cyclistRow({rider, onAction, actionType}) {
     if (isAdding) {
         buttonIcon = <PlusCircle size={26} color={'#f2f224ff'}/>;
         buttonMessage = 'Add Rider';
-        buttonColor = 'bg-green-700 border-yellow-200 text-yellow-200 border-2 rounded-lg';
+        buttonColor = 'bg-green-700 hover:bg-green-500 hover:animate-bounce border-yellow-200 text-yellow-200 border-2 rounded-lg';
     } else if (isRemoving) {
         buttonIcon = <MinusCircle size={26} color={'white'}/>;
         buttonMessage = 'Remove Rider';
-        buttonColor = 'bg-red-700 border-sky-600 text-white border-2 rounded-lg';
+        buttonColor = 'bg-red-700 hover:bg-red-500 hover:animate-bounce border-sky-600 text-white border-2 rounded-lg';
     } else if (isDisabled) {
         buttonIcon = <Lock size={26} color={'#0096FF'}/>;
         buttonMessage = 'Team Full';

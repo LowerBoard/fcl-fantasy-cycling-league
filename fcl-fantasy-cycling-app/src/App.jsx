@@ -58,6 +58,7 @@ function App() {
   const [ridersAvailable, setRidersAvailable] = useState(riderPool);
   const [userTeam, setUserTeam] = useState([]);
   const [userTeamName, setUserTeamName] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const maxTeamSize = 7;
   const isRosterFull = userTeam.length >= maxTeamSize;
@@ -73,14 +74,14 @@ function App() {
       <div className='flex flex-col h-auto min-h-screen'>
         <main>
           <Routes>
-            <Route path="/" element={<Login setUserSignedIn={setUserSignedIn} setUserTeamName={setUserTeamName} userTeamName={userTeamName} />} />
+            <Route path="/" element={<Login setUserSignedIn={setUserSignedIn} setUserTeamName={setUserTeamName} userTeamName={userTeamName} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />} />
             <Route path="/about" element={<About />}/>
             <Route path="/dashboard" element={<Dashboard userSignedIn={userSignedIn} userTeam={userTeam} />} />
-            <Route path="/registration" element={<Registration setUserSignedIn={setUserSignedIn} setUserTeamName={setUserTeamName} userTeamName={userTeamName} />}/>
+            <Route path="/registration" element={<Registration setUserSignedIn={setUserSignedIn} setUserTeamName={setUserTeamName} userTeamName={userTeamName} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}/>
             <Route path="/ridersavailable" element={<RidersAvailable ridersAvailable={ridersAvailable} setUserTeam={setUserTeam} setRidersAvailable={setRidersAvailable} isRosterFull={isRosterFull}/>}/>
             <Route path="/teampage" element={<TeamPage userTeam={userTeam} setUserTeam={setUserTeam} setRidersAvailable={setRidersAvailable} isRosterFull={isRosterFull} setUserTeamName={setUserTeamName} userTeamName={userTeamName}/>}/>
             <Route path="/nav" element={<Nav setUserSignedIn={setUserSignedIn} setUserTeamName={setUserTeamName} />}/>
-            <Route path="/navnotsignedin" element={<NavNotSignedIn />}/>
+            <Route path="/navnotsignedin" element={<NavNotSignedIn setErrorMessage={setErrorMessage} />}/>
           </Routes>
         </main>
       </div>
