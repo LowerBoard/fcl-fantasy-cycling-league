@@ -3,17 +3,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import fclLogo from '../assets/FCLlogo1.png';
 
 
-function Nav({setUserSignedIn}) {
+function Nav({setUserSignedIn, setUserTeamName}) {
     
     const navigate = useNavigate();
+
 
     const handleClick = () => {
         setUserSignedIn(false);
         navigate("/");
+        
     }
     
         return(
-        <div>
+        <div className='font-monofett'>
             <nav className='nav-bar'>
                 <img src={fclLogo} className='nav-logo'></img>
                 <ul className='nav-list'>
@@ -25,6 +27,9 @@ function Nav({setUserSignedIn}) {
                     </li>
                     <li>
                         <Link to="/teampage">Team Page</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
                     </li>
                     <li>
                         <button type='button' onClick={handleClick}>Sign Out</button>

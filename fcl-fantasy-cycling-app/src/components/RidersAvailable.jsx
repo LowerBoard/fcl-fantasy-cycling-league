@@ -17,29 +17,32 @@ function RidersAvailable({ridersAvailable, setRidersAvailable, setUserTeam, isRo
     };
 
   return (
-    <div>
-        <header>
-            <h1>Riders Available</h1>
-            <p>Build your 7 Rider Squad</p>
-        </header>
+    <div className='flex flex-col items-center  mt-4 mb-10'>
+        <section className='flex flex-col items-center'>
+            <h1 className='font-fasterone text-red-700 text-7xl text-shadow-lg/25' >Riders Available</h1>
+            <p className='font-fasterone text-sky-700 text-2xl text-shadow-lg/50' >----Build your 7 Rider Squad----</p>
+            <h2 className='font-fasterone text-yellow-400 text-5xl text-shadow-lg/25 mb-2.5'>Available Rider Pool</h2>
+        </section>
         <section>
-            <h2>Available Rider Pool</h2>
-        <table>
-            <tr>
-                <th>
-                    Rider + Country
-                </th>
-                <th>
-                    Team
-                </th>
-                <th>
-                    Cost
-                </th>
-                <th>
-                    Add
-                </th>
-            </tr>
-            <tbody>
+            <table className='table-auto border-green-700 border-4 border-separate border-spacing font-roboto text-center'>
+            <thead className='bg-yellow-400 w-full'>
+                <tr className='border-yellow-600 border-3'>
+                    <th className='border-green-600 border-2'>
+                        Rider - Country
+                    </th>
+                    <th className='border-green-600 border-2'>
+                        Team
+                    </th>
+                    <th className='border-green-600 border-2'>
+                        Cost
+                    </th>
+                    <th className='border-green-600 border-2'>
+                        Add
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody className='w-full bg-yellow-200'>
                 {ridersAvailable.sort((a,b) => b.cost - a.cost).map(rider => (
                     <CyclistRow 
                     key={rider.id}

@@ -11,24 +11,31 @@ function TeamPage({userTeam, setUserTeam, setRidersAvailable, userTeamName, setU
   }
 
   return (
-    <div>
-        <h1>The {userTeamName} Page</h1>
-        <table>
-            <tr>
-                <th>
+    <div className='flex flex-col items-center  mt-4 mb-10'>
+        <section className='flex flex-col items-center'>  
+          <h1 className='font-fasterone text-red-700 text-5xl text-shadow-lg/25' >The {userTeamName} Page</h1>
+          <p className='font-fasterone text-sky-700 text-2xl text-shadow-lg/50' >----Hold Up to 7 Riders----</p>
+        </section>  
+        <section className='flex flex-col items-center'>
+        <h2 className='font-fasterone text-yellow-400 text-5xl text-shadow-lg/25 mb-2.5'>Your Team</h2>
+        <table className='table-auto border-green-700 border-4 border-separate border-spacing font-roboto text-center'>
+          <thead className='bg-yellow-400 w-full'>
+            <tr className='border-yellow-600 border-3'>
+                <th className='border-green-600 border-2'>
                     Rider + Country
                 </th>
-                <th>
+                <th className='border-green-600 border-2'>
                     Team
                 </th>
-                <th>
+                <th className='border-green-600 border-2'>
                     Cost
                 </th>
-                <th>
+                <th className='border-green-600 border-2'>
                     Remove
                 </th>
             </tr>
-            <tbody>
+          </thead>
+            <tbody className='w-full bg-yellow-200'>
               {userTeam.length > 0 ? (
                 userTeam.map(rider => (
                   <CyclistRow
@@ -39,11 +46,17 @@ function TeamPage({userTeam, setUserTeam, setRidersAvailable, userTeamName, setU
                   />
                 ))
               ) : (
-                <p>Your Team Is Empty</p>
+                <tr>
+                  <td>Your Team Is Empty</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
                   )
               }
             </tbody>
         </table>
+        </section>
     </div>
   );
 };
